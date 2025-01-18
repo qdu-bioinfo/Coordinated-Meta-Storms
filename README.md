@@ -54,19 +54,19 @@ sudo ln -s /usr/local/cuda-12.0 /usr/local/cuda
 **a.Download the package**
 
 ```
-git clone 
+git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 ```
 
-**b.Extract the package**
+**b.Extract the package （use unzip command as an example）**
 
 ```shell
-tar -xzvf cms.tar.gz
+unzip Coordinated-Meta-Storms
 ```
 
 **c.Install by installer**
 
 ````shell
-cd cms
+cd Coordinated-Meta-Storms
 bash cms_install.sh
 ````
 
@@ -83,9 +83,11 @@ cuda-comp -h
 
 If a software usage prompt is displayed, the software has been successfully installed.
 
+Examples of program operation and simple usage instructions are in the "example" folder
+
 ### Data Format
 
-CMS now accepts the output of the **PM-select-taxa** command from the Parallel Meta suite(PMS) as input.URL for PMS is <https://github.com/qdu-bioinfo/parallel-meta-suite/tree/main>
+CMS now accepts OTU count table as input,  the output of the **PM-select-taxa** command from the Parallel Meta suite(PMS) is highly recommend to generate this file. URL for PMS is <https://github.com/qdu-bioinfo/parallel-meta-suite/tree/main>
 
 ## Usage
 
@@ -137,14 +139,6 @@ E.g.
 ```
 comp -T /home/taxa.OTU.Count -o result.dist -D G
 ```
-
-## Supplementary
-
- We have uploaded all the data of the additional dataset to the `dataset` folder. For a detailed introduction to the dataset, please refer to the table .
-
-| Name         | Introduction                                                 |
-| ------------ | ------------------------------------------------------------ |
-| NCBI dataset | 10000 samples were randomly selected from projects PRJEB19825, PRJNA503194, PRJEB14474, and PRJEB11697. |
 
 # Contact
 
