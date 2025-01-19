@@ -60,7 +60,7 @@ git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 **b.Extract the package （use unzip command as an example）**
 
 ```shell
-unzip Coordinated-Meta-Storms
+unzip Coordinated-Meta-Storms.zip
 ```
 
 **c.Install by installer**
