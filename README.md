@@ -33,14 +33,14 @@ a. Before installation, please check the current NVIDIA driver version (using th
 
 b. Visit the CUDA official website (<https://developer.nvidia.com/cuda-toolkit-archive>) to download the CUDA Toolkit version that matches your system environment.
 
-E.g.The following uses **CUDA Version 12.2** and **Ubuntu 22.04.3** as an example (** **Please choose the appropriate download link based on your system** **) 
+E.g. The following uses **CUDA Version 12.2** and **Ubuntu 22.04.3** as an example (** **Please choose the appropriate download link based on your system** **) 
 
 ```shell
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
 sudo sh cuda_12.2.0_535.54.03_linux.run
 ```
 
-**Note:**If multiple CUDA versions are installed on the system, you can switch between them using the following commands ( taking CUDA Toolkit 12.0 as an example ):
+**Note:** If multiple CUDA versions are installed on the system, you can switch between them using the following commands ( taking CUDA Toolkit 12.0 as an example ):
 
 ```
 sudo rm -rf cuda
