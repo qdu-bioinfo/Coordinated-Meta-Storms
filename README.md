@@ -21,7 +21,7 @@
 
 ## System requirement and dependency
 
-We have successfully completed the compilation and testing of the code. The GPU code runs in a CUDA 12.2 environment, while the CPU code was compiled and tested using G++ 9.4.0. The GPU tests were conducted on Ubuntu 22.04, and the CPU tests on CentOS 7.6, both demonstrating stable and reliable performance.
+We have successfully completed the compilation and testing of the code. The NVIDIA GPU code runs in a CUDA 12.2 environment, while the CPU code was compiled and tested using G++ 9.4.0. The GPU tests were conducted on Ubuntu 22.04, and the CPU tests on CentOS 7.6, both demonstrating stable and reliable performance.
 
 ## Installation guide
 
@@ -29,18 +29,18 @@ We have successfully completed the compilation and testing of the code. The GPU 
 
 #### CUDA Download and Install
 
-a.Before installation, please check the current NVIDIA driver version (using the `nvidia-smi` command to see the maximum CUDA Toolkit version supported by the driver) and the Linux server version to ensure they support the required CUDA Toolkit version.
+a. Before installation, please check the current NVIDIA driver version (using the `nvidia-smi` command to see the maximum CUDA Toolkit version supported by the driver) and the Linux server version to ensure they support the required CUDA Toolkit version.
 
-b.Visit the CUDA official website (<https://developer.nvidia.com/cuda-toolkit-archive>) to download the CUDA Toolkit version that matches your environment.
+b. Visit the CUDA official website (<https://developer.nvidia.com/cuda-toolkit-archive>) to download the CUDA Toolkit version that matches your system environment.
 
-E.g.The following uses **CUDA Version 12.2** and **Ubuntu 22.04.3** as an example (**Please choose the appropriate download link based on your target system**):
+E.g.The following uses **CUDA Version 12.2** and **Ubuntu 22.04.3** as an example (** **Please choose the appropriate download link based on your system** **) 
 
 ```shell
 wget https://developer.download.nvidia.com/compute/cuda/12.2.0/local_installers/cuda_12.2.0_535.54.03_linux.run
 sudo sh cuda_12.2.0_535.54.03_linux.run
 ```
 
-**Note:**If multiple CUDA versions are installed on the system, you can switch between them using the following commands (taking CUDA Toolkit 12.0 as an example):
+**Note:**If multiple CUDA versions are installed on the system, you can switch between them using the following commands ( taking CUDA Toolkit 12.0 as an example ):
 
 ```
 sudo rm -rf cuda
@@ -49,21 +49,19 @@ sudo ln -s /usr/local/cuda-12.0 /usr/local/cuda
 
 #### CMS Download and Install
 
-**CMS** provides a fully automatic installer for easy installation.
-
-**a.Download the package**
+**a. Download the package**
 
 ```
 git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 ```
 
-**b.Extract the package （use unzip command as an example）**
+**b. Extract the package （use unzip command as an example）**
 
 ```shell
 unzip Coordinated-Meta-Storms.zip
 ```
 
-**c.Install by installer**
+**c. Install by installer**
 
 ````shell
 cd Coordinated-Meta-Storms
@@ -72,7 +70,7 @@ bash cms_install.sh
 
 **Warnings may appear during compilation, but they can be ignored.**
 
-**d.Verify Compilation Success**
+**d. Verify Compilation Success**
 
 ```
 source ~/.bashrc
@@ -93,7 +91,7 @@ CMS now accepts OTU count table as input,  the output of the **PM-select-taxa** 
 
 ### Using NVIDIA GPU for Computation
 
-The current version of the program assumes that all GPUs on a single server node have identical specifications and will utilize all GPU resources on the node. Therefore, before running the program, please ensure that no other critical tasks are being executed on the server node to avoid disrupting other operations.
+The current version of the program assumes that all GPUs on a single server node have identical specifications and **will utilize all GPU resources on single node**. Therefore, before running the program, please ensure that no other critical tasks are being executed on the server node to avoid disrupting other operations.
 
 ```
 cuda-comp [option] value
