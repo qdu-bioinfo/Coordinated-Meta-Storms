@@ -138,6 +138,10 @@ E.g.
 comp -T /home/taxa.OTU.Count -o result.dist -D G
 ```
 
+# dataset
+
+The NCBI dataset mentioned in the paper is located in the **dataset** directory。
+
 # Contact
 
 Any problem please contact Coordinated Meta-Storms development team 
