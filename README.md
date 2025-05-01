@@ -138,9 +138,19 @@ E.g.
 comp -T /home/taxa.OTU.Count -o result.dist -D G
 ```
 
-# dataset
+# Dataset
 
-The NCBI dataset mentioned in the paper is located in the **dataset** directory。
+MSE dataset contains 200,000 microbiomes from Greengenes (v13-8).
+
+NCBI dataset contains 10,000 microbiomes from Greengenes (v13-8), Greengenes2, SILVA, and RefSeq.
+
+ENV dataset contains 200,000 microbiomes from Greengenes (v13-8).
+
+These three datasets can be downloaded from 
+
+[this address]: http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/
+
+.
 
 # Contact
 
