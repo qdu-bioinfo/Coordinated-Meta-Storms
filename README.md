@@ -1,7 +1,7 @@
 # Coordinated Meta-Storms
 
 ![Version](https://img.shields.io/badge/Version-1.01-brightgreen)
-![Release date](https://img.shields.io/badge/Release%20date-Jan.%2017%2C%202025-brightgreen)
+![Release date](https://img.shields.io/badge/Release%20date-Apr.%2030%2C%202025-brightgreen)
 
 
 
@@ -17,27 +17,29 @@
 
 # Introduction
 
-Coordianted Meta-Storms (CMS) algorithm not only optimizes Meta-Storms computing kernel, but also introduces a self-adaptive data decomposition strategy and a multi-GPU coordinate architecturea method for large-scale microbiome distance calculation that utilizes multiple GPUs in a coordinated manner. Compared to original Meta-Storms, it can enpower hundreds of times faster computation, greatly accelerating the research on microbial big data.
+Coordinated Meta-Storms (CMS) calculates phylogeny-based distance for ultra-large scale microbiomes using multiple-GPUs. It optimizes Meta-Storms algorithm computing kernel by a self-adaptive data decomposition strategy and a multi-GPU architecture in a coordinated manner. Compared to original Meta-Storms, it achieves hundreds of times faster computation, greatly accelerating the research on microbial big data.
 
 ## System requirement and dependency
 
 ### Hardware requirements
 
-Coordianted Meta-Storms requirs Nvidia GPU or AMD GPU support and a standard computer with sufficient RAM to support the operations defined by a user. A server equipped with multiple GPUs is a better configuration for usage. We recommend a computer with the following specs:
+Coordinated Meta-Storms requires NVIDIA GPU(s) or AMD GPU(s) in a x86 system with sufficient RAM. We recommend a computer with the following specs:
 
-RAM: 32+ GB
+ RAM: 32+ GB
 
-CPU: 8+ cores
+ CPU: 8+ cores
 
-GPU: 1+ Nvidia or AMD GPU
+ GPU: 1+ NVIDIA or AMD GPU
+
+ 
 
 ### Software requirements
 
-This software package integrates Meta-Storms. Meta-Storms requires the C/C++ parallel computing library of OpenMP. Most Linux releases have OpenMP already been installed in the system. 
+Operating system: Linux. MAC is not supported yet.
 
-In addition, CMS also requires support from CUDA or HIP. CUDA installation can refer to the next section. HIP installation can refer to the [this address](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html).
+Basic compiler: C/C++ with OpenMP library. Most Linux releases have OpenMP already been installed in the system.
 
-CMS doesn't provide support for the Mac.
+GPU complier: NVIDIA CUDA installation was referred to in the next section. HIP installation can be found  [here](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html).
 
 ## Installation guide
 
@@ -97,7 +99,7 @@ If a software usage prompt is displayed, the software has been successfully inst
 
 Examples of program operation and simple usage instructions are in the "example" folder
 
-#### HIP version CMS Download and manully Install
+#### HIP version CMS Download and Install
 
 **a. Download the package**
 
@@ -111,7 +113,7 @@ git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 unzip Coordinated-Meta-Storms.zip
 ```
 
-**c. manully Install**
+**c. Install**
 
 ````shell
 cd Coordinated-Meta-Storms
@@ -154,7 +156,7 @@ Examples of program operation and simple usage instructions are in the "example"
 
 #### **Input data format**
 
-CMS requires Microbial abundance table (e.g. OTU table) to calculate the distances among microbiomes. Currently CMS supports OTUs of Greengenes (v13-8), Greengenes2, SILVA, and RefSeq. More reference database will be released soon. The input example is as follows:
+CMS requires microbiome abundance table (e.g. OTU table) to calculate the distances among microbiomes. Currently CMS supports OTUs of Greengenes (v13-8), Greengenes2, SILVA, and RefSeq. More reference database will be released soon. The input example is as follows:
 
 ```
             OTU_1   OTU_2   OTU_3   ...     OTU_M
@@ -179,7 +181,7 @@ Option:
 -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 referance database.
+E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 cuda-comp -T /home/taxa.OTU.Count -o result.dist -D G
@@ -211,7 +213,7 @@ comp [option] value
           -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 referance database.
+E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 comp -T /home/taxa.OTU.Count -o result.dist -D G
@@ -230,7 +232,7 @@ Option:
 -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 referance database.
+E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /home directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 hip-comp -T /home/taxa.OTU.Count -o result.dist -D G
