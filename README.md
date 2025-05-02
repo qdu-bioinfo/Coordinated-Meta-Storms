@@ -1,4 +1,4 @@
-# Coordinated Meta-Storms
+# oordinated Meta-Storms
 
 ![Version](https://img.shields.io/badge/Version-1.01-brightgreen)
 ![Release date](https://img.shields.io/badge/Release%20date-Apr.%2030%2C%202025-brightgreen)
@@ -117,24 +117,7 @@ unzip Coordinated-Meta-Storms.zip
 
 ````shell
 cd Coordinated-Meta-Storms
-````
-
-Replace the compilation statement in **Makefile**
-
-````shell
-nvcc -w -o $(EXE_CMP_CUDA) src/cms_cuda.cu -lgomp -Xcompiler -w
-````
-
-to 
-
-````shell
-hipcc -w -o bin/hip-comp src/cms_hip.cpp -lgomp 
-````
-
-then 
-
-````shell
-bash cms_install.sh
+bash cms_install.sh hip
 ````
 
 **Warnings may appear during compilation, but they can be ignored.**
@@ -270,6 +253,6 @@ Due to the large file size, all dataset files have been compressed. Please refer
 Any problem please contact Coordinated Meta-Storms development team 
 
 ```
-Dr. Su,Xiaoquan E-mail: suxq@qdu.edu.cn
+Dr. Su,Xiaoquan   E-mail: suxq@qdu.edu.cn
 ```
 

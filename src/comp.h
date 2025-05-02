@@ -138,9 +138,14 @@ void _Comp_Tree::Init() {//初始化_comp_tree类的变量
 
 int _Comp_Tree::Load_id() {
 
-    ifstream infile(Database.Get_Tree_Id().c_str(), ifstream::in);
+    string path = Database.Get_Tree_Id();
+    path.erase(remove_if(path.begin(), path.end(), [](char c) {
+        return c == '\r' || c == '\n' || c == '\t' || c == ' ';
+    }), path.end());
+
+    ifstream infile(path.c_str(), ifstream::in);
     if (!infile) {
-        cerr << "Error: Cannot open file : " << Database.Get_Tree_Id() << endl;
+        cerr << "Error: Cannot open file : [" << path << "]" << endl;
         return 0;
     }
 
@@ -159,9 +164,15 @@ int _Comp_Tree::Load_id() {
 }
 
 int _Comp_Tree::Load_order() {
-    ifstream infile(Database.Get_Tree_Order().c_str(), ifstream::in);
+
+    string order_path = Database.Get_Tree_Order();
+    order_path.erase(remove_if(order_path.begin(), order_path.end(), [](char c) {
+        return c == '\r' || c == '\n' || c == '\t' || c == ' ';
+    }), order_path.end());
+
+    ifstream infile(order_path.c_str(), ifstream::in);
     if (!infile) {
-        cerr << "Error: Cannot open file : " << Database.Get_Tree_Order() << endl;
+        cerr << "Error: Cannot open file : [" << order_path << "]" << std::endl;
         return 0;
     }
 

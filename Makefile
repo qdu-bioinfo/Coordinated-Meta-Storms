@@ -11,12 +11,17 @@ EXE_CMP=bin/comp
 EXE_CMP_CUDA=bin/cuda-comp     
 EXE_CMP_HIP := bin/hip-comp
 
-all:$(OBJ_TAX) src/frame.cpp  
-	$(CC) -o $(EXE_CMP) src/comp_sam.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)   
-	$(NVCC) -w -o $(EXE_CMP_CUDA) src/cms_cuda.cu -lgomp -Xcompiler -w 
+MODE ?=
 
-hip:
+all:
+	@echo "Building with MODE=$(MODE)"
+	$(CC) -o $(EXE_CMP) src/comp_sam.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)
+
+ifeq ($(MODE), hip)
 	$(HIPCC) -o $(EXE_CMP_HIP) src/cms_hip.cpp -lgomp
-	
+else
+	$(NVCC) -w -o $(EXE_CMP_CUDA) src/cms_cuda.cu -lgomp -Xcompiler -w
+endif
+
 clean:
-	rm -rf bin/*comp src/*.o   
+	rm -rf bin/*comp src/*.o
