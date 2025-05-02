@@ -33,9 +33,11 @@ GPU: 1+ Nvidia or AMD GPU
 
 ### Software requirements
 
-OpenMP library is the C/C++ parallel computing library. Most Linux releases have OpenMP already been installed in the system. 
+This software package integrates the original version of Meta-Storms. It requires the C/C++ parallel computing library of OpenMP. Most Linux releases have OpenMP already been installed in the system. 
 
 In addition, CMS also requires support from CUDA or HIP. CUDA installation can refer to the next section. HIP installation can refer to the [this address](https://www.amd.com/en/developer/resources/rocm-hub/hip-sdk.html).
+
+CMS doesn't provide support for the Mac.
 
 ## Installation guide
 
@@ -185,7 +187,7 @@ E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /ho
 cuda-comp -T /home/taxa.OTU.Count -o result.dist -D G
 ```
 
-#### Using CPU for Computation
+#### Using original CPU version Meta-Storms for Computation
 
 ```
 comp [option] value
@@ -236,7 +238,7 @@ hip-comp -T /home/taxa.OTU.Count -o result.dist -D G
 
 #### 
 
-# Dataset
+# Experiment dataset
 
 MSE dataset contains 200,000 microbiomes annotated by Greengenes (v13-8).
 
@@ -245,6 +247,8 @@ NCBI dataset contains 10,000 microbiomes annotated by Greengenes (v13-8), Greeng
 ENV dataset contains 344 microbiomes annotated by Greengenes (v13-8).
 
 These three datasets can be downloaded from [this address](http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/).
+
+Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. **Fully decompressing the dataset requires 80GB **of free space on the hard drive. If you want to **reproduce all the experiments, it is recommended to leave 1TB** of free space on the hard drive
 
 # Contact
 
