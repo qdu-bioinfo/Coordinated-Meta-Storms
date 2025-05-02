@@ -1652,7 +1652,7 @@ void Multi_GPU_split_MetaStorm(_Table_Format abd_table) {
                     }
                     end = clock();
                     time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                    printf("*** copy data time from host to dcu is : %f seconds ***\n", time_used);
+                    printf("*** copy data time from host to device is : %f seconds ***\n", time_used);
 
                     for (int i = 0; i < current_block_size_row; i++)
                         delete[] Abd[i];
@@ -1979,7 +1979,7 @@ void Multi_GPU_split_MetaStorm(_Table_Format abd_table) {
                     }
                     end = clock();
                     time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-                    printf("*** copy data time from host to dcu is : %f seconds ***\n", time_used);
+                    printf("*** copy data time from host to device is : %f seconds ***\n", time_used);
 
                     for (int i = 0; i < current_block_size_row; i++)
                         delete[] Abd_row[i];
