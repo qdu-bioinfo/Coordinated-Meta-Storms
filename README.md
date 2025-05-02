@@ -261,7 +261,7 @@ ENV dataset contains 344 randomly selected microbiomes in gut, oral, soil, marin
 
 These three datasets can be downloaded from [this address](http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/).
 
-Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. **Fully decompressing the dataset requires 80GB **of free space on the hard drive. If you want to **reproduce all the experiments, it is recommended to leave 1TB** of free space on the hard drive
+Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. Fully **decompressing the dataset requires 80GB** of free space on the hard drive. If you want to **reproduce all the experiments, it is recommended to leave 1TB** of free space on the hard drive
 
 # Contact
 
