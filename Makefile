@@ -1,4 +1,6 @@
 CC:=g++    
+NVCC := nvcc
+HIPCC := hipcc
 
 OMPFLG=-fopenmp        
 HASHFLG=-Wno-deprecated      
@@ -7,10 +9,14 @@ OBJ_EXT=src/ExtractRNA.o
 
 EXE_CMP=bin/comp
 EXE_CMP_CUDA=bin/cuda-comp     
+EXE_CMP_HIP := bin/hip-comp
 
-tax:$(OBJ_TAX) src/frame.cpp  
+all:$(OBJ_TAX) src/frame.cpp  
 	$(CC) -o $(EXE_CMP) src/comp_sam.cpp $(HASHFLG) $(BUILDFLG) $(OMPFLG)   
-	nvcc -w -o $(EXE_CMP_CUDA) src/cms_cuda.cu -lgomp -Xcompiler -w 
+	$(NVCC) -w -o $(EXE_CMP_CUDA) src/cms_cuda.cu -lgomp -Xcompiler -w 
 
+hip:
+	$(HIPCC) -o $(EXE_CMP_HIP) src/cms_hip.cpp -lgomp
+	
 clean:
 	rm -rf bin/*comp src/*.o   

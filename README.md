@@ -175,7 +175,7 @@ In this version, CMS assumes that **all GPUs on a single server have identical s
 ```
 cuda-comp [option] value
 Option:
--D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or O (Oral_Core (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level)), or E (SILVA (18S rRNA, 97% level)), or T (ITS (ITS1, 97% level))
+-D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
 -T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
 -o Output file, default is to output on screen
 -h Help
@@ -193,7 +193,7 @@ The CMS integrates the original version of Meta-Storms, and the commands used ar
 
 ```
 comp [option] value
--D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or O (Oral_Core (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level)), or E (SILVA (18S rRNA, 97% level)), or T (ITS (ITS1, 97% level))
+-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
         [Input options, required]
           -i Two samples path for single sample comparison
         or
@@ -226,7 +226,7 @@ The current version of the program assumes that **all GPUs on a single server ha
 ```
 hip-comp [option] value
 Option:
--D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or O (Oral_Core (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level)), or E (SILVA (18S rRNA, 97% level)), or T (ITS (ITS1, 97% level))
+-D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)),or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
 -T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
 -o Output file, default is to output on screen
 -h Help
@@ -261,7 +261,7 @@ NCBI dataset contains 10,000 randomly selected microbiomes annotated by Greengen
 
 ENV dataset contains 344 randomly selected microbiomes in gut, oral, soil, marine, plant and river environment  annotated by Greengenes (v13-8).
 
-These three datasets can be downloaded from [this address](http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/).
+These three datasets can be downloaded from [here](http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/).
 
 Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. Fully **decompressing the dataset requires 80GB** of free space on the hard drive. If you want to **reproduce all the experiments, it is recommended to leave 1TB** of free space on the hard drive
 
