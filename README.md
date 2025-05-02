@@ -246,7 +246,7 @@ ENV dataset contains 344 microbiomes sampled from gut, oral, soil, marine, plant
 
 All datasets are available at [here](http://bioinfo-ai.cn/downloads/Released_Software/Coordinated_Meta_Storms/data/).
 
-Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. The **decompression of MSE dataset requires 80GB** of free space on the hard drive. If you want to run **MSE dataset**, it is recommended **1TB of free space on the hard drive** and **512GB RAM** in the system.
+Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. The **decompression of MSE dataset requires 80GB** of free space on the hard drive. If you want to run **MSE dataset**, it is recommended **1TB of free hard drive space** and **512GB RAM** in the system.
 
 # Contact
 
