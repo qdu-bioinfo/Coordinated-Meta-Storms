@@ -164,7 +164,7 @@ Option:
 -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **taxa.OTU.Count ** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
+E.g. Calculate the similarity matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 cuda-comp -T /home/taxa.OTU.Count -o result.dist -D G
@@ -196,7 +196,7 @@ comp [option] value
           -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **taxa.OTU.Count ** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
+E.g. Calculate the similarity matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 comp -T /home/taxa.OTU.Count -o result.dist -D G
@@ -215,7 +215,7 @@ Option:
 -h Help
 ```
 
-E.g. Calculate the similarity matrix of the **taxa.OTU.Count ** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
+E.g. Calculate the similarity matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
 
 ```
 hip-comp -T /home/taxa.OTU.Count -o result.dist -D G
