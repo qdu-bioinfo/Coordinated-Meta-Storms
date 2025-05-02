@@ -236,6 +236,21 @@ E.g. Calculate the similarity matrix of the **"taxa.OTU.Count" **file in the /ho
 hip-comp -T /home/taxa.OTU.Count -o result.dist -D G
 ```
 
+# Example dataset
+
+Here, we provide a demo dataset in the "example" folder with 1250 microbiomes. In this package, "taxa.OTU.Count" is the OTU count table. To run the demo, you can type the following command:
+
+```
+cd example
+cuda-comp -T taxa.OTU.Count -o output.dist -D G
+```
+
+#### Output description
+
+We also provide the example output in example folder:
+
+output.dist : pairwise Meta-Storms distance of these 1250 samples
+
 # Experiment dataset
 
 MSE dataset contains 200,000 randomly selected microbiomes annotated by Greengenes (v13-8).
