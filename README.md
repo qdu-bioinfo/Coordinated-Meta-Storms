@@ -1,4 +1,4 @@
-# oordinated Meta-Storms
+# Coordinated Meta-Storms
 
 ![Version](https://img.shields.io/badge/Version-1.01-brightgreen)
 ![Release date](https://img.shields.io/badge/Release%20date-Apr.%2030%2C%202025-brightgreen)
