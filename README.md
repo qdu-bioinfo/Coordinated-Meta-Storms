@@ -91,7 +91,7 @@ bash cms_install.sh
 ```
 source ~/.bashrc
 
-cd cms/bin
+cd bin
 cuda-comp -h
 ```
 
@@ -127,7 +127,7 @@ bash cms_install.sh hip
 ```
 source ~/.bashrc
 
-cd cms/bin
+cd bin
 hip-comp -h
 ```
 
