@@ -65,19 +65,39 @@ sudo ln -s /usr/local/cuda-12.0 /usr/local/cuda
 
 #### CUDA version CMS Download and Install
 
-**a. Download the package**
+**a. Make sure install and  Initialize "git LFS"**
+
+Debian/Ubuntu：
+
+```
+sudo apt-get install git-lfs
+```
+
+CentOS/RHEL：
+
+```
+sudo yum install git-lfs
+```
+
+Initialize Git LFS
+
+```
+git lfs install
+```
+
+**b. Download the package**
 
 ```
 git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 ```
 
-**b. Extract the package （use unzip command as an example）**
+**c. Extract the package （If necessary）**
 
 ```shell
 unzip Coordinated-Meta-Storms.zip
 ```
 
-**c. Install by installer**
+**d. Install by installer**
 
 ````shell
 cd Coordinated-Meta-Storms
@@ -86,7 +106,7 @@ bash cms_install.sh
 
 **Warnings may appear during compiling, but they can be ignored.**
 
-**d. Verify compiling success**
+**e. Verify compiling success**
 
 ```
 source ~/.bashrc
@@ -101,19 +121,39 @@ An example of software usage with demo data is available in the "example" folder
 
 #### HIP version CMS Download and Install
 
-**a. Download the package**
+**a. Make sure install and  Initialize "git LFS"**
+
+Debian/Ubuntu：
+
+```
+sudo apt-get install git-lfs
+```
+
+CentOS/RHEL：
+
+```
+sudo yum install git-lfs
+```
+
+Initialize Git LFS
+
+```
+git lfs install
+```
+
+**b. Download the package**
 
 ```
 git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 ```
 
-**b. Extract the package （use unzip command as an example）**
+**c. Extract the package （use unzip command as an example）**
 
 ```shell
 unzip Coordinated-Meta-Storms.zip
 ```
 
-**c. Install by hip installer** 
+**d. Install by hip installer** 
 
 ````shell
 cd Coordinated-Meta-Storms
@@ -122,7 +162,7 @@ bash cms_install.sh hip
 
 **Warnings may appear during compiling, but they can be ignored.**
 
-**d. Verify compiling success**
+**e. Verify compiling success**
 
 ```
 source ~/.bashrc
