@@ -147,7 +147,7 @@ git lfs install
 git clone https://github.com/qdu-bioinfo/Coordinated-Meta-Storms.git
 ```
 
-**c. Extract the package （use unzip command as an example）**
+**c. Extract the package （If necessary）**
 
 ```shell
 unzip Coordinated-Meta-Storms.zip
