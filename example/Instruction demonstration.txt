@@ -1,0 +1,10 @@
+CPU Version:
+comp -T /home/taxa.OTU.Count -o result.dist -D G
+
+#this command will generate distance matrix in the same path of the "taxa.OTU.Count" file.
+
+
+CUDA Version :
+cuda-comp -T taxa.OTU.Count -o cuda-result.dist -D G
+
+#Same as above
