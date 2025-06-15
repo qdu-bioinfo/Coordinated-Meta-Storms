@@ -49,6 +49,7 @@ typedef struct {
     int end_col;
 } Block;
 
+//kernel function for diagonal square
 __global__ void
 CalcSimOfDiagonalSquare(float **d_Abd, float *d_sim_matrix, int *d_order_row, int *d_order_col, int num_elements, int OrderN, float *Dist_1,
                         float *Dist_2, int *Order_1, int *Order_2, int *Order_d, int sharedMemorySize) {
@@ -492,6 +493,7 @@ CalcSimOfDiagonalSquare(float **d_Abd, float *d_sim_matrix, int *d_order_row, in
     }
 }
 
+//kernel function for normal rectangle
 __global__ void
 CalcSimOfNormalRectangle(float **Abd_row, float **Abd_col, float *d_sim_matrix, int *d_order_row, int *d_order_col, int num_elements, int OrderN,
                          float *Dist_1, float *Dist_2, int *Order_1, int *Order_2, int *Order_d, int sharedMemorySize) {
@@ -935,6 +937,7 @@ CalcSimOfNormalRectangle(float **Abd_row, float **Abd_col, float *d_sim_matrix, 
     }
 }
 
+//calculate the sparsity of abundance table
 void calculateAbundanceSparsity(int file_count, int line, float **Abd) {
     int abd_total = 0;
 
@@ -958,6 +961,7 @@ void calculateAbundanceSparsity(int file_count, int line, float **Abd) {
     printf("\n");
 }
 
+//define compute order for sub block
 void defineOrder(int **order_row, int **order_col, int rows, int cols, long *num_elements, int flag) {
     *order_row = (int *) malloc(rows * cols * sizeof(int));
     *order_col = (int *) malloc(rows * cols * sizeof(int));
@@ -984,18 +988,26 @@ void defineOrder(int **order_row, int **order_col, int rows, int cols, long *num
     }
 }
 
+//compute memory use of diagonal square
 int showMemoryUseOfDiagonalSquare(int file_count, int orderN, double memory_ratio) {
     long long iter = (long long) file_count * (file_count - 1) / 2;
     cudaDeviceProp prop;
     cudaGetDeviceProperties(&prop, 0); // choose default device
     size_t totalMemory = prop.totalGlobalMem;
 
+    //abd size
     long long size_Abd =
             (long long) file_count * sizeof(float *) + (long long) file_count * (orderN + 1) * sizeof(float);
     size_Abd = static_cast<long long>(size_Abd * memory_ratio);
+
+    //result matrix size
     long long size_sim_matrix = sizeof(float) * iter;
+
+    //order size
     long long size_order_m = sizeof(int) * iter;
     long long size_order_n = sizeof(int) * iter;
+
+    //phylogeny tree data
     long long size_Dist_1 = sizeof(float) * orderN;
     long long size_Dist_2 = sizeof(float) * orderN;
     long long size_Order_1 = sizeof(int) * orderN;
@@ -1026,19 +1038,27 @@ int showMemoryUseOfDiagonalSquare(int file_count, int orderN, double memory_rati
     }
 }
 
+//compute memory use of General Rectangle
 int showMemoryUseOfGeneralRectangle(int file_count, int orderN, double memory_ratio) {
     long long iter = (long long) file_count * file_count;
     cudaDeviceProp prop;
     cudaGetDeviceProperties(&prop, 0); // choose default device
     size_t totalMemory = prop.totalGlobalMem;
 
+    //abd size
     long long size_Abd =
             (long long) file_count * sizeof(float *) + (long long) file_count * (orderN + 1) * sizeof(float);
     size_Abd *= 2;
     size_Abd = static_cast<long long>(size_Abd * memory_ratio);
+
+    //result matrix size
     long long size_sim_matrix = sizeof(float) * iter;
+
+    //compute order size
     long long size_order_m = sizeof(int) * iter;
     long long size_order_n = sizeof(int) * iter;
+
+    //phylogeny tree data
     long long size_Dist_1 = sizeof(float) * orderN;
     long long size_Dist_2 = sizeof(float) * orderN;
     long long size_Order_1 = sizeof(int) * orderN;
@@ -1087,8 +1107,10 @@ int splitSizeConfirm(int file_count, int orderN, double memory_ratio) {
             result_normal_square = showMemoryUseOfGeneralRectangle(splitFileCount, orderN, memory_ratio);
             if (result_normal_square == -1) {
                 if (splitFileCount <= 40000) {
+                    //quantitative reduction
                     splitFileCount -= (splitFileCount > 1000) ? 1000 : splitFileCount;
                 } else {
+                    //binary decomposition
                     splitFileCount = (splitFileCount + 1) / 2;
                 }
             } else {
@@ -1107,6 +1129,7 @@ int splitSizeConfirm(int file_count, int orderN, double memory_ratio) {
     return splitFileCount;
 }
 
+//launch kernel
 float
 launchKernelOfDiagonalSquare(float ***d_Abd, float **d_sim_matrix, int **d_order_row, int **d_order_col, int *chunksize, int orderN,
                              float **d_Dist_1, float **d_Dist_2, int **d_Order_1, int **d_Order_2, int **d_Order_d, int blockSize, int *gridSize,
@@ -1145,6 +1168,7 @@ launchKernelOfDiagonalSquare(float ***d_Abd, float **d_sim_matrix, int **d_order
     return elapsedTime;
 }
 
+//launch kernel
 float
 launchKernelOfNormalRectangle(float ***Abd_row, float ***Abd_col, float **d_sim_matrix, int **d_order_row, int **d_order_col, int *chunksize,
                               int orderN, float **d_Dist_1, float **d_Dist_2, int **d_Order_1, int **d_Order_2, int **d_Order_d, int blockSize,
@@ -1506,6 +1530,7 @@ void Multi_GPU_split_MetaStorm(_Table_Format abd_table) {
             break;
     }
 
+    //split size
     int split_size = splitSizeConfirm(file_count, orderN, memory_ratio);
 
     printf("split size is : %d\n", split_size);
@@ -1520,6 +1545,7 @@ void Multi_GPU_split_MetaStorm(_Table_Format abd_table) {
     int skipped_blocks = 0;
     float totalKernelTime = 0.0;
 
+    //process each sub block
     for (int block_row = 0; block_row < file_count; block_row += split_size) {
         for (int block_col = 0; block_col < file_count; block_col += split_size) {
             block_counter++;

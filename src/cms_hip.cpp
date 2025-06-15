@@ -49,10 +49,12 @@ typedef struct {
     int end_col;
 } Block;
 
+//kernel function for diagonal square
 extern __global__ void
 CalcSimOfDiagonalSquare(float **d_Abd, float *d_sim_matrix, int *order_m, int *order_n, int num_elements, int OrderN, float *Dist_1, float *Dist_2,
                         int *Order_1, int *Order_2, int *Order_d, int sharedMemorySize);
 
+//kernel function for Normal Rectangle
 extern __global__ void
 CalcSimOfNormalRectangle(float **Abd_row, float **Abd_col, float *d_sim_matrix, int *d_order_row, int *d_order_col, int num_elements, int OrderN,
                          float *Dist_1, float *Dist_2, int *Order_1, int *Order_2, int *Order_d, int sharedMemorySize);
