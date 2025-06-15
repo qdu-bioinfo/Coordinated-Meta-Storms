@@ -248,6 +248,24 @@ All datasets are available at [here](http://bioinfo-ai.cn/downloads/Released_Sof
 
 Due to the large file size, all dataset files have been compressed. Please refer to the **readme files** in each dataset folder for decompression operations. The **decompression of MSE dataset requires 80GB** of free space on the hard drive. If you want to run **MSE dataset**, it is recommended **1TB of free hard drive space** and **512GB RAM** in the system.
 
+
+In addition, for the default Greengenes 13-8 database, we also provide a GPU version program sample size and recommended minimum memory table to provide performance configuration for a larger range of samples.
+
+
+
+***\*Table 1 Recommended sample sizes for different memory capacities in the default Greengenes 13-8 database\****
+
+| ***\*Sample Count\**** | ***\*Memory Size\**** |
+| ---------------------- | --------------------- |
+| ***\*5,000\****        | ***\*6GB\****         |
+| ***\*10,000\****       | ***\*12GB\****        |
+| ***\*20,000\****       | ***\*24GB\****        |
+| ***\*40,000\****       | ***\*55GB\****        |
+| ***\*60,000\****       | ***\*68GB\****        |
+| ***\*80,000\****       | ***\*80GB\****        |
+| ***\*100,000\****      | ***\*128GB\****       |
+| ***\*200,000\****      | ***\*320GB\****       |
+
 # Contact
 
 Any problem please contact Coordinated Meta-Storms development team 
