@@ -68,7 +68,7 @@ int printhelp() {
     cout << "\t[Output options]" << endl;
     cout << "\t  -o Output file, default is to output on screen" << endl;
     cout << "\t  -d Output format, distance (T) or similarity (F), default is T" << endl;
-    cout << "\t  -P (upper) Print heatmap and clusters, T(rue) or F(alse), default is F" << endl;
+    //cout << "\t  -P (upper) Print heatmap and clusters, T(rue) or F(alse), default is F" << endl;
 
     cout << "\t[Other options]" << endl;
     //cout << "\t  -w weighted or unweighted, T(rue) or F(alse), default is T" << endl;
@@ -76,7 +76,7 @@ int printhelp() {
             << "\t  -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0"
             << endl;
     cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
-    cout << "\t  -c Cluster number, default is 2 [Optional for -P]" << endl;
+    //cout << "\t  -c Cluster number, default is 2 [Optional for -P]" << endl;
     cout << "\t  -t Number of thread, default is auto" << endl;
     cout << "\t  -h Help" << endl;
 
