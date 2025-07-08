@@ -1208,12 +1208,16 @@ launchKernelOfNormalRectangle(float ***Abd_row, float ***Abd_col, float **d_sim_
 }
 
 int printhelp() {
-    cout << " Welcome to Coordinated Meta Storm "<< endl;
-    cout << "\tCompute the Meta-Storms distance among samples, default use rRNA copy number correction" << endl;
+    cout << " Welcome to Coordinated Meta Storms " << endl;
+    cout << "\tCompute the Meta-Storms distance or similarity among samples " << endl;
     cout << "Usage: " << endl;
     cout << "cuda-comp [Option] Value" << endl;
     cout << "Options: " << endl;
-    cout << "\t-D (upper) ref database, " << _PMDB::Get_Args() << endl;
+    cout << "\t[reference database, required]" << endl;
+    //cout << "\t -D (upper) ref database, " << _PMDB::Get_Args() << endl;
+    cout
+            << "\t -D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))"
+            << endl;
 
     cout << "\t[Input options, required]" << endl;
     //cout << "\t  -i Two samples path for single sample comparison" << endl;
@@ -1226,17 +1230,17 @@ int printhelp() {
 
     cout << "\t[Output options]" << endl;
     cout << "\t  -o Output file, default is to output on screen" << endl;
-    //cout << "\t  -d Output format, distance (T) or similarity (F), default is T" << endl;
+    cout << "\t  -d Output format, distance (T) or similarity (F), default is T" << endl;
     //cout << "\t  -P (upper) Print heatmap and clusters, T(rue) or F(alse), default is F" << endl;
 
-    //cout << "\t[Other options]" << endl;
+    cout << "\t[Other options]" << endl;
     //cout << "\t  -w weighted or unweighted, T(rue) or F(alse), default is T" << endl;
     //cout
-            //<< "\t  -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0"
-            //<< endl;
-    //cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
+    //<< "\t  -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0"
+    //<< endl;
+    cout << "\t  -r rRNA copy number correction, T(rue) or F(alse), default is T" << endl;
     //cout << "\t  -c Cluster number, default is 2 [Optional for -P]" << endl;
-    //cout << "\t  -t Number of thread, default is auto" << endl;
+    cout << "\t  -t Number of thread, default is auto" << endl;
     cout << "\t  -h Help" << endl;
 
     exit(0);
@@ -1318,7 +1322,7 @@ void Parse_Para(int argc, char *argv[]) {
     if ((Coren <= 0) || (Coren > max_core_number)) {
         Coren = max_core_number;
         //printf("\nCoren:%d\n", Coren);
-        Coren = 2;
+        //Coren = 2;
     }
     if (Cluster <= 0) {
         cerr << "Warning: cluster number must be larger than 0, change to default (2)" << endl;
@@ -2230,15 +2234,15 @@ void Multi_GPU_split_MetaStorm(_Table_Format abd_table) {
     printf("*** all kernel launch time is : %.2f seconds or %d hours %d minutes and %.2f seconds \n", totalKernelTime, totalHours, totalMinutes,
            totalSeconds);
 
-    printf("\nsimilarity matrix: \n");
-    size_t size = sim_matrix.size();
-    size_t print_count = size < 50 ? size : 50;
-    for (size_t i = 0; i < print_count; i++) {
-        printf("%f ", sim_matrix[i]);
-        if ((i + 1) % 10 == 0) {
-            printf("\n");
-        }
-    }
+//    printf("\nsimilarity matrix: \n");
+//    size_t size = sim_matrix.size();
+//    size_t print_count = size < 50 ? size : 50;
+//    for (size_t i = 0; i < print_count; i++) {
+//        printf("%f ", sim_matrix[i]);
+//        if ((i + 1) % 10 == 0) {
+//            printf("\n");
+//        }
+//    }
     printf("\n");
 
     clock_t timeStart = clock();

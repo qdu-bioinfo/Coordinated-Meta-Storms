@@ -1,3 +1,5 @@
+// Updated at July 8,2025
+// Updated by Minan Wang
 // Updated at July 31, 2021
 // Updated by Yuzhu Chen
 // Update time: Nov 6, 2020
@@ -49,12 +51,16 @@ int Mode = 0; //0: single, 1: multi_list, 2: multi_table
 
 int printhelp() {
 
-    cout << " Welcome to Coordinated Meta Storm" << endl;
-    cout << "\tCompute the Meta-Storms similarity/distance among samples" << endl;
+    cout << " Welcome to Coordinated Meta Storms" << endl;
+    cout << "\tCompute the Meta-Storms distance or similarity among samples" << endl;
     cout << "Usage: " << endl;
     cout << "comp [Option] Value" << endl;
     cout << "Options: " << endl;
-    cout << "\t-D (upper) ref database, " << _PMDB::Get_Args() << endl;
+    cout << "\t[reference database, required]" << endl;
+    //cout << "\t-D (upper) ref database, " << _PMDB::Get_Args() << endl;
+    cout
+            << "\t -D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))"
+            << endl;
 
     cout << "\t[Input options, required]" << endl;
     cout << "\t  -i Two samples path for single sample comparison" << endl;
@@ -71,7 +77,7 @@ int printhelp() {
     //cout << "\t  -P (upper) Print heatmap and clusters, T(rue) or F(alse), default is F" << endl;
 
     cout << "\t[Other options]" << endl;
-    //cout << "\t  -w weighted or unweighted, T(rue) or F(alse), default is T" << endl;
+    cout << "\t  -w weighted or unweighted, T(rue) or F(alse), default is T" << endl;
     cout
             << "\t  -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0"
             << endl;
@@ -289,21 +295,21 @@ void Multi_Comp() {
     for (int i = 0; i < file_count; i++)
         delete[] Abd[i];
 
-    if (Is_heatmap) {
-        char command[BUFFER_SIZE];
-        sprintf(command, "Rscript %s/Rscript/PM_Heatmap.R -d %s -o %s", Check_Env().c_str(), Outfilename.c_str(),
-                (Outfilename + ".heatmap.pdf").c_str());
-        system(command);
-        sprintf(command, "Rscript %s/Rscript/PM_Hcluster.R -d %s -o %s -c %d", Check_Env().c_str(), Outfilename.c_str(),
-                (Outfilename + ".clusters.pdf").c_str(), Cluster);
-        system(command);
-    }
+//    if (Is_heatmap) {
+//        char command[BUFFER_SIZE];
+//        sprintf(command, "Rscript %s/Rscript/PM_Heatmap.R -d %s -o %s", Check_Env().c_str(), Outfilename.c_str(),
+//                (Outfilename + ".heatmap.pdf").c_str());
+//        system(command);
+//        sprintf(command, "Rscript %s/Rscript/PM_Hcluster.R -d %s -o %s -c %d", Check_Env().c_str(), Outfilename.c_str(),
+//                (Outfilename + ".clusters.pdf").c_str(), Cluster);
+//        system(command);
+//    }
 };
 
 void Multi_Comp_Table(_Table_Format abd_table) {
 
     clock_t start, end;
-    double time_used; 
+    double time_used;
 
     _Comp_Tree comp_tree(Ref_db);
 
@@ -357,15 +363,15 @@ void Multi_Comp_Table(_Table_Format abd_table) {
     for (int i = 0; i < file_count; i++)
         delete[] Abd[i];
 
-    if (Is_heatmap) {
-        char command[BUFFER_SIZE];
-        sprintf(command, "Rscript %s/Rscript/PM_Heatmap.R -d %s -o %s", Check_Env().c_str(), Outfilename.c_str(),
-                (Outfilename + ".heatmap.pdf").c_str());
-        system(command);
-        sprintf(command, "Rscript %s/Rscript/PM_Hcluster.R -d %s -o %s -c %d", Check_Env().c_str(), Outfilename.c_str(),
-                (Outfilename + ".clusters.pdf").c_str(), Cluster);
-        system(command);
-    }
+//    if (Is_heatmap) {
+//        char command[BUFFER_SIZE];
+//        sprintf(command, "Rscript %s/Rscript/PM_Heatmap.R -d %s -o %s", Check_Env().c_str(), Outfilename.c_str(),
+//                (Outfilename + ".heatmap.pdf").c_str());
+//        system(command);
+//        sprintf(command, "Rscript %s/Rscript/PM_Hcluster.R -d %s -o %s -c %d", Check_Env().c_str(), Outfilename.c_str(),
+//                (Outfilename + ".clusters.pdf").c_str(), Cluster);
+//        system(command);
+//    }
 };
 
 int main(int argc, char *argv[]) {

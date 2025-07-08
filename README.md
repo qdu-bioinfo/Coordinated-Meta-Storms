@@ -1,6 +1,6 @@
 # Coordinated Meta-Storms
 
-![Version](https://img.shields.io/badge/Version-1.01-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.0-brightgreen)
 ![Release date](https://img.shields.io/badge/Release%20date-Apr.%2030%2C%202025-brightgreen)
 
 
@@ -159,11 +159,18 @@ In this version, CMS assumes that **all GPUs on a single server have identical s
 
 ```
 cuda-comp [option] value
-Option:
--D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
--T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
--o Output file, default is to output on screen
--h Help
+Options:
+	[reference database, required]
+	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
+	[Input options, required]
+	-T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
+	[Output options]
+	-o Output file, default is to output on screen
+	-d Output format, distance (T) or similarity (F), default is T
+	[Other options]
+	-r rRNA copy number correction, T(rue) or F(alse), default is T
+    -t Number of thread, default is auto
+	-h Help
 ```
 
 E.g. Calculate the distance matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
@@ -178,22 +185,24 @@ The CMS integrates the original version of Meta-Storms, and the commands used ar
 
 ```
 comp [option] value
--D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
-        [Input options, required]
-          -i Two samples path for single sample comparison
-        or
-          -l Input files list for multi-sample comparison
-          -p List files path prefix [Optional for -l]
-        or
-          -T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
-        [Output options]
-          -o Output file, default is to output on screen
-          -d Output format, distance (T) or similarity (F), default is T
-        [Other options]
-          -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0
-          -r rRNA copy number correction, T(rue) or F(alse), default is T
-          -t Number of thread, default is auto
-          -h Help
+Options:
+	[reference database, required]
+	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
+    [Input options, required]
+      -i Two samples path for single sample comparison
+    or
+      -l Input files list for multi-sample comparison
+      -p List files path prefix [Optional for -l]
+    or
+      -T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
+    [Output options]
+      -o Output file, default is to output on screen
+      -d Output format, distance (T) or similarity (F), default is T
+    [Other options]
+      -M (upper) Distance Metric, 0: Meta-Storms; 1: Meta-Storms-unweighted; 2: Cosine; 3: Euclidean; 4: Jensen-Shannon; 5: Bray-Curtis, default is 0
+      -r rRNA copy number correction, T(rue) or F(alse), default is T
+      -t Number of thread, default is auto
+      -h Help
 ```
 
 E.g. Calculate the distance matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
@@ -208,11 +217,18 @@ The current version of the program assumes that **all GPUs on a single server ha
 
 ```
 hip-comp [option] value
-Option:
--D (upper) ref database default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)),or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
--T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
--o Output file, default is to output on screen
--h Help
+Options:
+	[reference database, required]
+	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
+	[Input options, required]
+	-T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
+	[Output options]
+	-o Output file, default is to output on screen
+	-d Output format, distance (T) or similarity (F), default is T
+	[Other options]
+	-r rRNA copy number correction, T(rue) or F(alse), default is T
+    -t Number of thread, default is auto
+	-h Help
 ```
 
 E.g. Calculate the distance matrix of the **taxa.OTU.Count** file in the **/home** directory and output the result to "result.dist" using Greengenes 13-8 database.
