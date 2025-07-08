@@ -160,16 +160,16 @@ In this version, CMS assumes that **all GPUs on a single server have identical s
 ```
 cuda-comp [option] value
 Options:
-	[reference database, required]
+  [reference database, required]
 	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
-	[Input options, required]
+  [Input options, required]
 	-T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
-	[Output options]
+  [Output options]
 	-o Output file, default is to output on screen
 	-d Output format, distance (T) or similarity (F), default is T
-	[Other options]
+  [Other options]
 	-r rRNA copy number correction, T(rue) or F(alse), default is T
-    -t Number of thread, default is auto
+	-t Number of thread, default is auto
 	-h Help
 ```
 
@@ -186,8 +186,8 @@ The CMS integrates the original version of Meta-Storms, and the commands used ar
 ```
 comp [option] value
 Options:
-	[reference database, required]
-	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
+    [reference database, required]
+   -D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
     [Input options, required]
       -i Two samples path for single sample comparison
     or
@@ -218,16 +218,16 @@ The current version of the program assumes that **all GPUs on a single server ha
 ```
 hip-comp [option] value
 Options:
-	[reference database, required]
+  [reference database, required]
 	-D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
-	[Input options, required]
+  [Input options, required]
 	-T (upper) Input OTU count table (*.OTU.Count) for multi-sample comparison
-	[Output options]
+  [Output options]
 	-o Output file, default is to output on screen
 	-d Output format, distance (T) or similarity (F), default is T
-	[Other options]
+  [Other options]
 	-r rRNA copy number correction, T(rue) or F(alse), default is T
-    -t Number of thread, default is auto
+	-t Number of thread, default is auto
 	-h Help
 ```
 
