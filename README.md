@@ -1,7 +1,7 @@
 # Coordinated Meta-Storms
 
-![Version](https://img.shields.io/badge/Version-1.0-brightgreen)
-![Release date](https://img.shields.io/badge/Release%20date-Apr.%2030%2C%202025-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.1-brightgreen)
+![Release date](https://img.shields.io/badge/Release%20date-July.%2014%2C%202025-brightgreen)
 
 
 
@@ -13,6 +13,7 @@
 - [Usage](#usage)
 - [Example dataset](#example-dataset)
 - [Experiment dataset](#experiment-dataset)
+- [Citation](#citation)
 - [Contact](#contact)
 
 # Introduction
@@ -187,7 +188,7 @@ The CMS integrates the original version of Meta-Storms, and the commands used ar
 comp [option] value
 Options:
     [reference database, required]
-   -D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
+      -D (upper) ref database, default is G (GreenGenes-13-8 (16S rRNA, 97% level)), or S (SILVA (16S rRNA, 97% level)), or C (GreenGenes-13-8 (16S rRNA, 99% level)), or R (GreenGenes-2 (16S rRNA)), or Q (Refseq (16S rRNA, 100% level))
     [Input options, required]
       -i Two samples path for single sample comparison
     or
@@ -283,6 +284,10 @@ In addition, for the default Greengenes 13-8 database, we also provide a GPU ver
 | ***\*200,000\****      | ***\*320GB\****                |
 | ***\*500,000\****      | ***\*1TB\****                  |
 | ***\*1,000,000\****    | ***\*3.5TB\****                |
+
+# Citation
+
+This software has been published on **Zedono**, you can cite all versions by using the DOI [10.5281/zenodo.15802999](https://doi.org/10.5281/zenodo.15802999)
 
 # Contact
 
