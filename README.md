@@ -289,6 +289,10 @@ In addition, for the default Greengenes 13-8 database, we also provide a GPU ver
 
 This software has been published on **Zedono**, you can cite all versions by using the DOI [10.5281/zenodo.15802999](https://doi.org/10.5281/zenodo.15802999)
 
+
+
+Wang M., Gao H., et al., Coordinated Meta-Storms enables comparison of million-level microbiomes, Bioinformatics, 2025
+
 # Contact
 
 Any problem please contact Coordinated Meta-Storms development team 
